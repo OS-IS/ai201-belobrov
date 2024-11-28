@@ -1,0 +1,34 @@
+@startuml
+left to right direction
+
+node "Smartphone" {
+  node "OS Android" {
+    artifact "*.apk (Android studio)" {
+      [Сенсорний екран]
+    }
+  }
+}
+
+node "Server #1" {
+  node "OS Linux" {
+    node "Docker" {
+      frame "Project Container" {
+        node "Application Container" {
+          node "Java Virtual Machine" {
+            artifact "*.class source files"
+          }
+        }
+        node "Database Container" {
+          node "Database Server PostgreSQL" {
+            database "Relation Database"
+          }
+        }
+      }
+    }
+  }
+}
+
+"*.apk (Android studio)" --> "*.class source files"
+"*.class source files" --> "Relation Database"
+
+@enduml
